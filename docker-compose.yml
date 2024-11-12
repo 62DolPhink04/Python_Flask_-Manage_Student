@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  web:
+    build: .  # Xây dựng image từ Dockerfile trong thư mục hiện tại
+    ports:
+      - "5555:5001"  # Máy chủ (5555) kết nối với container (5001)
+    volumes:
+      - .:/app  # Mount thư mục hiện tại vào /app trong container
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=runserver.py  # Đặt tên file chính cho ứng dụng Flask
+      - DATABASE_URL=postgresql://user:password@db:5432/finance_db  # URL database
+    command: >
+      sh -c "
+        flask db init &&  # Khởi tạo database
+        flask db migrate &&  # Tạo di chuyển cho database
+        flask db upgrade &&  # Nâng cấp database lên phiên bản mới nhất
+        flask run --host=0.0.0.0 --port=5001  # Chạy Flask trên cổng 5001 trong container
+      "
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: finance_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
