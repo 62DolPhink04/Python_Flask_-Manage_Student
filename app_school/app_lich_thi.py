@@ -70,7 +70,6 @@ def Sua_lich_thi(id_nien_khoa,id_khoi,id_mon):
     lich = {}
     lich['Mon'] = ten_mon(id_mon)
     lich['NienKhoa'] = ten_nien_khoa(id_nien_khoa)
-    lich['Khoi'] = ten_nien_khoa(id_khoi)
     lich['NgayThi'] = lich_thi.ThoiGianThi
     lich['ThoiGian'] = lich_thi.ThoiGianLamBai
 
