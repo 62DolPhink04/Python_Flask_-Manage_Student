@@ -26,19 +26,14 @@ def trang_doi_ngu():
 
     return render_template('index/doi_ngu.html')
 
-@app.route('/trang-chu/doi-ngu/truong-hau', methods=['GET','POST'])
+@app.route('/trang-chu/doi-ngu/minhnhut', methods=['GET','POST'])
 def trang_doi_ngu_1():
 
-    return render_template('index/doi_ngu_truong_hau.html')
+    return render_template('index/doi_ngu_minhnhut.html')
 
-@app.route('/trang-chu/doi-ngu/tuan-anh', methods=['GET','POST'])
+@app.route('/trang-chu/doi-ngu/thanhphong', methods=['GET','POST'])
 def trang_doi_ngu_2():
-    return render_template('index/doi_ngu_tuan_anh.html')
-
-@app.route('/trang-chu/doi-ngu/thanh-hoa', methods=['GET','POST'])
-def trang_doi_ngu_3():
-
-    return render_template('index/doi_ngu_thanh_hoa.html')
+    return render_template('index/doi_ngu_thanhphong.html')
 
 @app.route('/trang-chu/lien-he', methods=['GET','POST'])
 def trang_lien_he():

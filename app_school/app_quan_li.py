@@ -46,8 +46,8 @@ def trang_tra_loi_lien_he(Chuoi_tra_cuu) :
 
         app.config['MAIL_SERVER'] = "smtp.gmail.com"
         app.config['MAIL_PORT'] = 465
-        app.config['MAIL_USERNAME'] = 'thanhhoa6621@gmail.com'    #Muốn test thì thay email vào nhe
-        app.config['MAIL_PASSWORD'] = 'password'                #Pass email
+        app.config['MAIL_USERNAME'] = 'minhhnhutt6621@gmail.com'    
+        app.config['MAIL_PASSWORD'] = '123456'                #Pass email
         app.config['MAIL_USE_TLS'] = False  
         app.config['MAIL_USE_SSL'] = True
         mail = Mail(app)

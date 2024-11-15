@@ -70,12 +70,20 @@ def Profile_hoc_sinh(id_hs):
 
 def hs_doi_mat_khau(TaiKhoan, MatkhauCu, MatkhauMoi):
     ThongBao = ""
+    
+    # Giả sử TaiKhoan là một ID hợp lệ
     hs = db_session.query(HocSinh).filter(HocSinh.IDHocSinh == TaiKhoan).first()
-    if MatkhauCu != hs.MatKhau:
+    
+    if not hs:  # Nếu không tìm thấy học sinh
+        ThongBao = "Không tìm thấy học sinh"
+    elif MatkhauCu != hs.MatKhau:
         ThongBao = "Mật khẩu không khớp"
     else:
         hs.MatKhau = MatkhauMoi
         db_session.flush()
         db_session.commit()
         ThongBao = "Đổi Mật Khẩu Thành Công"
+    
     return ThongBao
+
+

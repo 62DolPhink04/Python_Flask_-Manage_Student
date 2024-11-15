@@ -1,17 +1,12 @@
 {% extends "web_layout/giao-vien-master.html" %}
 
 <!-- Header Block -->
-
 {% block head %}
-
-{{ super()}}
-
+{{ super() }}
 {% endblock %}
 
 <!-- Content Block -->
-
 {% block content %}
-
 <!-- Start content -->
 <div class="content">
     <div class="container-fluid">
@@ -21,51 +16,63 @@
             <p class="text-muted m-b-30">Thêm lớp mới vào danh sách lớp học</p>
             <form method="POST">
                 {{ form.csrf_token }}
+                
+                <!-- Tên lớp -->
                 <div class="form-group row">
-                    {{ form.Th_Lop.label(for="example-text-input",class="col-sm-2 col-form-label") }}
+                    {{ form.Th_Lop.label(for="example-text-input", class="col-sm-2 col-form-label") }}
                     <div class="col-sm-10">
-                        {{ form.Th_Lop(class="form-control",id="example-text-input",placeholder="Nhập Tên Lớp") }}
+                        {{ form.Th_Lop(class="form-control", id="example-text-input", placeholder="Nhập Tên Lớp") }}
                     </div>
                     {% if form.Th_Lop.errors %}
-                    <ul class=errors>
+                    <ul class="errors">
                         {% for error in form.Th_Lop.errors %}
                         <li>{{ error }}</li>
                         {% endfor %}
                     </ul>
                     {% endif %}
                 </div>
+
+                <!-- Địa điểm -->
                 <div class="form-group row">
-                    {{ form.Th_Dia_diem.label(for="example-text-input",class="col-sm-2 col-form-label") }}
+                    {{ form.Th_Dia_diem.label(for="example-text-input", class="col-sm-2 col-form-label") }}
                     <div class="col-sm-10">
-                        {{ form.Th_Dia_diem(class="form-control",id="example-text-input",placeholder="Nhập Địa điểm của Lớp") }}
+                        {{ form.Th_Dia_diem(class="form-control", id="example-text-input", placeholder="Nhập Địa điểm của Lớp") }}
                     </div>
                     {% if form.Th_Dia_diem.errors %}
-                    <ul class=errors>
+                    <ul class="errors">
                         {% for error in form.Th_Dia_diem.errors %}
                         <li>{{ error }}</li>
                         {% endfor %}
                     </ul>
                     {% endif %}
                 </div>
+
+                <!-- Giáo viên chủ nhiệm -->
                 <div class="form-group row">
                     {{ form.Th_GV_Chu_nhiem.label(class="col-sm-2 col-form-label") }}
                     <div class="col-sm-10">
                         {{ form.Th_GV_Chu_nhiem(class="form-control") }}
                     </div>
                 </div>
+
+                <!-- Khối -->
                 <div class="form-group row">
                     {{ form.Th_Khoi.label(class="col-sm-2 col-form-label") }}
                     <div class="col-sm-10">
                         {{ form.Th_Khoi(class="form-control") }}
                     </div>
                 </div>
+
+                <!-- Niên khóa -->
                 <div class="form-group row">
                     {{ form.Th_Nien_khoa.label(class="col-sm-2 col-form-label") }}
                     <div class="col-sm-10">
                         {{ form.Th_Nien_khoa(class="form-control") }}
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary waves-effect waves-light float-right" onClick="this.disabled=true; this.value='Sending…';"> Cập nhật</button>
+
+                <!-- Nút Cập nhật -->
+                <button type="submit" class="btn btn-primary waves-effect waves-light float-right">Cập nhật</button>
             </form>
         </div>
     </div>
@@ -76,9 +83,6 @@
 {% endblock %}
 
 <!-- Script block -->
-
 {% block script %}
-
-{{ super()}}
-
+{{ super() }}
 {% endblock %}

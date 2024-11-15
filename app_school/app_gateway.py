@@ -86,9 +86,6 @@ def login():
 #             pass
 #     return render_template("account/register.html", form=form, error=error)
 
-@app.route('/lockscreen', methods=['GET','POST'])
-def lockscreen():
-    return render_template("account/lockscreen.html")
 
 # @app.route('/recoverpw', methods=['GET','POST'])
 # def recoverpw():

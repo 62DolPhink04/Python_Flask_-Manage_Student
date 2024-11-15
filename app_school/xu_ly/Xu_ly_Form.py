@@ -194,7 +194,7 @@ class Form_Reset_pw(FlaskForm):
     Th_MatkhauMoi = PasswordField("Mật khẩu mới: ", [
         validators.DataRequired(),
         validators.Length(min=4, max=20),
-        validators.EqualTo('Th_Mat_khau_xac_nhan', message='Mật khẩu và mật khẩu xác nhận phải trùng nhau')
+        # validators.EqualTo('Th_Mat_khau_xac_nhan', message='Mật khẩu và mật khẩu xác nhận phải trùng nhau')
     ])
     Th_Mat_khau_xac_nhan = PasswordField("Mật khẩu xác nhận: ")
 
